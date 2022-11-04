@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Productos 
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Productos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-row>
+<ion-col>
+  <ion-list>
+    <ion-item-sliding >
+      <ion-item *ngFor="let item of products; let i = index">
+        <img [src]="item.photo" width="80px" height="80px" class="ion-margin"/>
+        <ion-label (click)="getProductById(item.id)">
+          {{item.name}}
+          <ion-label>
+          <ion-chip color="success" outline="true" class="ion-float-left" >
+            {{item.price}} $
+          </ion-chip>
+        </ion-label>
+        </ion-label>
+        <ion-button (click)="addCart(i)" fill="outline" size="default" color="success"  >
+          <ion-icon name="cart" ></ion-icon>
+        </ion-button>
+        
+      </ion-item>
+      <ion-item-options side = "end" (ionSwipe)="addCart(i)">
+        <ion-item-option expandable color = "success">
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+
+  </ion-list>
+</ion-col>
+
+</ion-row>
+<ion-fab (click)="getCart()" vertical="bottom" horizontal="end">
+  <ion-fab-button  color="success">
+    <ion-icon name="cart" ></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+</ion-content>
+
