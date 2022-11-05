@@ -14,39 +14,49 @@
   </ion-header>
 
 <ion-row>
-<ion-col>
-  <ion-list>
-    <ion-item-sliding >
-      <ion-item *ngFor="let item of products; let i = index">
-        <img [src]="item.photo" width="80px" height="80px" class="ion-margin"/>
-        <ion-label (click)="getProductById(item.id)">
-          {{item.name}}
-          <ion-label>
-          <ion-chip color="success" outline="true" class="ion-float-left" >
-            {{item.price}} $
-          </ion-chip>
-        </ion-label>
-        </ion-label>
-        <ion-button (click)="addCart(i)" fill="outline" size="default" color="success"  >
-          <ion-icon name="cart" ></ion-icon>
-        </ion-button>
-        
-      </ion-item>
-      <ion-item-options side = "end" (ionSwipe)="addCart(i)">
-        <ion-item-option expandable color = "success">
-          <ion-icon name="trash-outline"></ion-icon>
-        </ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
-
-  </ion-list>
-</ion-col>
-
+  <ion-col>
+    <ion-list>
+        <ion-item *ngFor="let item of products; let i = index">
+          <img [src]="item.photo" width="80px" height="80px" class="ion-margin"/>
+          <ion-label (click)="getProductById(item.id)">
+            {{item.name}}
+            <ion-label>
+            <ion-chip color="success" outline="true" class="ion-float-left" >
+              {{item.price}} $
+            </ion-chip>
+          </ion-label>
+          </ion-label>
+          <ion-button (click)="addCart(i)" fill="outline" size="default" color="success"  >
+            <ion-icon name="cart" ></ion-icon>
+          </ion-button> 
+        </ion-item>
+    </ion-list>
+  </ion-col>
 </ion-row>
-<ion-fab (click)="getCart()" vertical="bottom" horizontal="end">
-  <ion-fab-button  color="success">
-    <ion-icon name="cart" ></ion-icon>
-  </ion-fab-button>
-</ion-fab>
+<!--
+  <ion-fab (click)="getCart()" vertical="bottom" horizontal="end">
+    <ion-fab-button  color="success">
+      <ion-icon name="cart" ></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab (click)="addToCart()" vertical="bottom" horizontal="end">
+    <ion-fab-button  color="success">
+      <ion-icon name="cart" ></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+-->
+  <ion-fab vertical="bottom" horizontal="end">
+    <ion-fab-button color="success">
+      <ion-icon name="chevron-up"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button (click)="getCart()">
+        <ion-icon name="cart"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button (click)="addnewProduct()">
+        <ion-icon name="add-circle-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
 </ion-content>
 

@@ -39,9 +39,12 @@ export class ProductService {
   public getProducts(): Product[] {
     return this.products;
   }
-  public addProduct(pos:number) {
-    //return this.products;
-  }
+  public addProduct(nmb:string,des:string,pr:number,idpro:string,cant:number,foto:string) {
+    console.log(foto);
+    if(foto === undefined){foto="https://picsum.photos/600/?random=4";}
+    this.products.push({photo: foto, name: nmb, description:des,price:pr,id:idpro,quantity:cant});
+  }// photo: string;
+
   public getProductById(id:string): Product {
     let item = this.products.find(
       (product)=>{

@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class HomePage {
 
-  private products : Product[];
+  public products : Product[];
 
   constructor(private productService:ProductService,private router: Router ) {
     this.products = this.productService.getProducts();
@@ -29,6 +29,10 @@ export class HomePage {
   }
   public getCart(){
     this.router.navigate(['/view-cart']);
+  }
+
+  public addnewProduct(){
+    this.router.navigate(['/view-addnewproduct']);
   }
 
 }
