@@ -14,6 +14,11 @@ export class ViewAddnewproductPage implements OnInit {
   public foto: string;
   constructor(private productService:ProductService) { }
 
+  /**
+   * TAKIS GUACAMOLE: https://www.barcel.com.mx/themes/custom/barceldos/images/files/takis_huakamole.png
+   * NARANJAS: https://www.barcel.com.mx/themes/custom/barceldos/images/files/takis_volcano.png
+   * 
+  */
   ngOnInit() {
   }
 

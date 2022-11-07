@@ -10,7 +10,7 @@ export class ProductService {
   constructor() { 
     this.products = [
       {
-        photo: "https://picsum.photos/600/?random=1",
+        photo: "https://www.barcel.com.mx/themes/custom/barceldos/images/files/takis_fuego.png",
         name: "Takis morados",
         description:"son morados y pican",
         price: 15,
@@ -18,7 +18,7 @@ export class ProductService {
         quantity:0
       },
       {
-        photo: "https://picsum.photos/600/?random=2",
+        photo: "https://www.barcel.com.mx/themes/custom/barceldos/images/files/takis_original.png",
         name: "Takis verdes",
         description: "son verdes y son originales",
         price: 14,
@@ -26,7 +26,7 @@ export class ProductService {
         quantity:0
       },
       {
-        photo: "https://picsum.photos/600/?random=3",
+        photo: "https://superlomas.odoo.com/web/image/product.template/2764/image_256/%5B7500810000502%5D%20TAKIS%20SALSA%20BRAVA%2068%20GR?unique=5feb10c",
         name: "Takis amarillos",
         description: "son amarillos y no pican tanto ",
         price: 16,
