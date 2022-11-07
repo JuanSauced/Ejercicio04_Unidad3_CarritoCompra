@@ -30,9 +30,17 @@
               <ion-chip color="success" outline="true" class="ion-float-left">
                Cantidad: {{item.quantity}}
               </ion-chip>
+              <ion-chip color="success" outline="true" class="ion-float-left">
+                Precio Unitario: {{item.price}}
+               </ion-chip>
             </ion-label>
-            
           </ion-label>
+          <ion-button expand="block" color="danger" (click)="deleteProduct(i)">
+            <ion-icon name="remove-circle-outline"></ion-icon>
+          </ion-button>
+          <ion-button expand="block" color="success" (click)="moreProduct(i)">
+            <ion-icon name="add"></ion-icon>
+          </ion-button>
         </ion-item>
         <ion-label color="success" >
           Total : {{c}} $ 

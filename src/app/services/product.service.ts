@@ -7,6 +7,7 @@ import { Product } from '../models/product';
 export class ProductService {
   private products: Product[];
   private productCart: Product[];
+  private idProduct:string;
   constructor() { 
     this.products = [
       {
@@ -78,6 +79,15 @@ export class ProductService {
         return i
     }
     return -1
+  }
+  public deleteProduct(ind:number){
+    for (let i = 0; i < this.products.length; i++) {
+      if(this.productCart[ind].id==this.products[i].id)
+      this.products[i].quantity=0;  
+      break;
+    }
+   this.productCart.splice(ind,1);
+   
   }
   
 }

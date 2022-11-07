@@ -26,5 +26,22 @@ export class ViewCartPage implements OnInit {
     console.log(this.c);
   }
   
-
+  public deleteProduct(i:number){
+    if(this.productCart[i].quantity>1){
+      this.productCart[i].quantity-=1;
+    }else{
+    this.productService.deleteProduct(i);
+  }
+  this.c=0;
+    for (let i = 0; i < this.productCart.length; i++) {
+      this.c+=(this.productCart[i].price*this.productCart[i].quantity);
+    }
+  }
+  public moreProduct(i:number){
+    this.productCart[i].quantity+=1;
+    this.c=0;
+    for (let i = 0; i < this.productCart.length; i++) {
+      this.c+=(this.productCart[i].price*this.productCart[i].quantity);
+    }
+  }
 }
