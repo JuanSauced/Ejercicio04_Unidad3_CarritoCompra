@@ -26,25 +26,14 @@
             </ion-chip>
           </ion-label>
           </ion-label>
-          <ion-button (click)="addCart(i)" fill="outline" size="default" color="success"  >
+          <ion-button (click)="addCart(item,item.id)" fill="outline" size="default" color="success"  >
             <ion-icon name="cart" ></ion-icon>
           </ion-button> 
         </ion-item>
     </ion-list>
   </ion-col>
 </ion-row>
-<!--
-  <ion-fab (click)="getCart()" vertical="bottom" horizontal="end">
-    <ion-fab-button  color="success">
-      <ion-icon name="cart" ></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-  <ion-fab (click)="addToCart()" vertical="bottom" horizontal="end">
-    <ion-fab-button  color="success">
-      <ion-icon name="cart" ></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
--->
+
   <ion-fab vertical="bottom" horizontal="end">
     <ion-fab-button color="success">
       <ion-icon name="chevron-up"></ion-icon>

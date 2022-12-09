@@ -16,23 +16,20 @@
       <ion-list>
         <ion-item>
           <ion-label position="floating">Escriba nombre del producto:</ion-label>
-          <ion-input [(ngModel)]="nombre"></ion-input>
+          <ion-input [(ngModel)]="name"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating">Descripcion:</ion-label>
-          <ion-input [(ngModel)]="descripcion"></ion-input>
+          <ion-input [(ngModel)]="description"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating">Precio:</ion-label>
-          <ion-input [(ngModel)]="precio"></ion-input>
+          <ion-input [(ngModel)]="price"></ion-input>
         </ion-item>
-        <ion-item>
-          <ion-label position="floating">ID de producto:</ion-label>
-          <ion-input [(ngModel)]="idproducto"></ion-input>
-        </ion-item>
+
         <ion-item>
           <ion-label position="floating">URL de imagen:</ion-label>
-          <ion-input [(ngModel)]="foto"></ion-input>
+          <ion-input [(ngModel)]="photo"></ion-input>
         </ion-item>
       </ion-list>
     </ion-col>
@@ -41,7 +38,7 @@
     </!--ion-col-->
   </ion-row>
   <ion-row>
-    <ion-button expand="block" (click)="addProduct()" *ngIf="nombre && descripcion && precio && idproducto">
+    <ion-button expand="block" (click)="addProduct()" *ngIf="name && description && price && photo">
       <ion-icon name="add"></ion-icon>
     </ion-button>
   </ion-row>

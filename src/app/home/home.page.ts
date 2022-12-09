@@ -13,18 +13,21 @@ export class HomePage {
   public products : Product[];
 
   constructor(private productService:ProductService,private router: Router ) {
-    this.products = this.productService.getProducts();
+    this.productService.getProducts().subscribe(res => {
+      this.products = res;
+    });
   }
 
-  public addCart(i:number){
-    this.productService.addCart(i);
-    
+  public addCart(product: Product,id: string){
+
+    product.quantity = product.quantity+1;
+    this.productService.addCart(product,id);
+
   }
 
   public getProductById(id: string): void {
-    console.log(this.productService.getProductById(id));
-    this.router.navigate(['/view-product'], {
-      queryParams: { id: id }
+    this.router.navigate(['view-product'], {
+      queryParams: { id: id },
     });
   }
   public getCart(){

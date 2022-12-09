@@ -9,39 +9,33 @@ import { Product } from '../models/product';
   styleUrls: ['./view-cart.page.scss'],
 })
 export class ViewCartPage implements OnInit {
-  public productCart:Product[];
+  public products:Product[];
   public c:number=0;
   
   constructor(private productService: ProductService, private activatedRoute: ActivatedRoute) { 
-    
+    this.productService.getProducts().subscribe(res => {
+      this.products = res;
+      this.c = 0;
+      for (let i = 0; i < this.products.length; i++) {
+        this.c += this.products[i].quantity * this.products[i].price;
+      }
+    });
+
   }
 
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe((params) => {
-      this.productCart = this.productService.getCart();
+
     });
-    for (let i = 0; i < this.productCart.length; i++) {
-      this.c+=(this.productCart[i].price*this.productCart[i].quantity);
-    }
-    console.log(this.c);
+    
   }
   
-  public deleteProduct(i:number){
-    if(this.productCart[i].quantity>1){
-      this.productCart[i].quantity-=1;
-    }else{
-    this.productService.deleteProduct(i);
+  public deleteProduct(product:Product,id : string){
+  product.quantity = product.quantity-1;
+  this.productService.addCart(product,id)
   }
-  this.c=0;
-    for (let i = 0; i < this.productCart.length; i++) {
-      this.c+=(this.productCart[i].price*this.productCart[i].quantity);
-    }
-  }
-  public moreProduct(i:number){
-    this.productCart[i].quantity+=1;
-    this.c=0;
-    for (let i = 0; i < this.productCart.length; i++) {
-      this.c+=(this.productCart[i].price*this.productCart[i].quantity);
-    }
+  public moreProduct(product:Product,id : string){
+    product.quantity = product.quantity+1;
+    this.productService.addCart(product,id)
   }
 }

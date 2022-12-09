@@ -14,11 +14,18 @@ export class ViewProductPage implements OnInit {
   public product : Product;
 
   constructor(private productService: ProductService, private activatedRoute: ActivatedRoute) { 
+    this.product = {
+      name: "",
+      description: "",
+      price: 0,
+      photo: "",
+      quantity: 0
+    }
   }
 
   ngOnInit() {
-    this.activatedRoute.queryParams.subscribe((params) => {
-      this.product = this.productService.getProductById(params.id);
+    this.activatedRoute.queryParams.subscribe((params) =>{
+      this.productService.getProductByID(params.id).subscribe(item => {this.product= item as Product});
     });
   }
 

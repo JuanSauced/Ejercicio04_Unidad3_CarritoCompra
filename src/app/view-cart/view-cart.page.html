@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
-  </ion-buttons>
+    </ion-buttons>
     <ion-title>
       Carrito
     </ion-title>
@@ -17,35 +17,48 @@
   </ion-header>
 
   <ion-row>
-    <ion-col>
+    <ion-col *ngFor="let item of products; let i = index ">
       <ion-list>
-        <ion-item *ngFor="let item of productCart; let i = index ">
-          <img [src]="item.photo" width="80px" height="80px" class="ion-margin" />
-          <ion-label>
-            {{item.name}}
+        <ion-item>
+          <div *ngIf="item.quantity>0" style="margin: auto;">
             <ion-label>
-              <ion-label>
-                {{item.description}}
-              </ion-label>
-              <ion-chip color="success" outline="true" class="ion-float-left">
-               Cantidad: {{item.quantity}}
-              </ion-chip>
-              <ion-chip color="success" outline="true" class="ion-float-left">
-                Precio Unitario: {{item.price}}
-               </ion-chip>
+              <div >
+                <img [src]="item.photo" width="80px" height="80px"  />
+              </div>
+              <div style="text-align: center">
+                {{item.name}}
+              </div>
+             
+              <div>
+                <ion-label>
+                  <ion-label style="text-align: center;">
+                    {{item.description}}
+                  </ion-label>
+                  <ion-chip color="success" outline="true" class="ion-float-left">
+                    Cantidad: {{item.quantity}}
+                  </ion-chip>
+                  <ion-chip color="success" outline="true" class="ion-float-left">
+                    Precio Unitario: {{item.price}}
+                  </ion-chip>
+                </ion-label>
+              </div>
+              <div>
+                <ion-button expand="block" color="success" (click)="moreProduct(item,item.id)">
+                  <ion-icon name="add-circle-outline"></ion-icon>
+                </ion-button>
+                <ion-button expand="block" color="danger" (click)="deleteProduct(item,item.id)">
+                  <ion-icon name="remove-circle-outline"></ion-icon>
+                </ion-button>
+              </div>
             </ion-label>
-          </ion-label>
-          <ion-button expand="block" color="danger" (click)="deleteProduct(i)">
-            <ion-icon name="remove-circle-outline"></ion-icon>
-          </ion-button>
-          <ion-button expand="block" color="success" (click)="moreProduct(i)">
-            <ion-icon name="add-circle-outline"></ion-icon>
-          </ion-button>
+          </div>
         </ion-item>
-        <ion-label color="success" >
-          Total : {{c}} $ 
-        </ion-label>
+
       </ion-list>
     </ion-col>
+
   </ion-row>
+  <ion-label color="success">
+    Total : {{c}} $
+  </ion-label>
 </ion-content>
